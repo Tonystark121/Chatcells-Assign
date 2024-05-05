@@ -43,7 +43,7 @@ const nav = () => {
     setShowNavs((prev) => !prev);
   };
   return (
-    <div className="relative w-full h-20 bg-white border-b-2 border-gray-300 flex items-end justify-between px-5 self-end font-popins font-semibold text-lg lg:text-xl">
+    <div className="fixed w-full h-20 bg-white border-b-2 border-gray-300 flex items-end justify-between px-5 self-end font-popins font-semibold text-lg lg:text-xl">
       {isTablet ? (
         <div className="pb-4 hidden semi:block">
           <img src="./assets/sbi.png" alt="Logo" width={60} height={60} />
@@ -88,7 +88,7 @@ const nav = () => {
         <VscAccount className="sm:text-[24px] text-[30px] cursor-pointer " />
       </div>
       {showNavs && !isTablet && (
-        <div className="absolute duration-[600ms] left-0 top-20 w-full h-auto min-h-[100vh] z-10 bg-red-400">
+        <div className="fixed duration-[600ms] left-0 top-20 w-full h-auto min-h-[100vh] z-10 bg-red-400">
             {/* Menu Bar */}
             <NavItems navs={navs} width={'full'} />
         </div>
