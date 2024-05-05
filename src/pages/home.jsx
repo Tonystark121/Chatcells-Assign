@@ -28,7 +28,7 @@ export const NavItems = ({ navs, width = "" }) => {
           >
             <div className="flex gap-4 items-center ">
               {item.icons}
-              <p>{item.name}</p>
+              <p className="font-semibold">{item.name}</p>
             </div>
             <TfiAngleRight className="mt-1" />
           </div>
@@ -48,7 +48,7 @@ const RightPart = () => {
   };
   return (
     <div className="pt-8 flex flex-col gap-5 phone:gap-3 h-full">
-      <h1 className=" text-[35px] whitespace-nowrap  phone:text-3xl font-bold">
+      <h1 className=" text-[35px] text-start whitespace-nowrap  phone:text-3xl font-bold">
         Update Bank Details
       </h1>
       <div className=" text-[16px] text-justify phone:text-start phone:text-sm text-gray-700 w-[85%] sm_tab:w-[75%] ">
@@ -78,6 +78,7 @@ const RightPart = () => {
 
 const home = () => {
   const { pathname } = useLocation();
+  const [leftNavs, setLeftNavs] = useState(true);
   // Navlinks and Icons
   const navs = [
     {
@@ -97,15 +98,32 @@ const home = () => {
       icons: <BsBank />,
     },
   ];
+  const hideLeftNavs = () => {
+    setLeftNavs((prev) => !prev);
+  };
+  const showLeftNavs = () => {
+    setLeftNavs((prev) => !prev);
+  };
   return (
     <>
       {/* Top Navigation bar */}
       <Navbar />
       <div className="flex min-h-[100vh] h-auto pb-16">
         <div className=" w-[25%] relative h-auto hidden sm_tab:block">
-          <GoArrowLeft className="absolute top-5 left-4 text-2xl cursor-pointer" />
+          {leftNavs ? (
+            <GoArrowLeft
+              className="absolute top-5 left-4 text-2xl cursor-pointer"
+              onClick={hideLeftNavs}
+            />
+          ) : (
+            <GoArrowRight
+              className="absolute top-5 left-4 text-2xl cursor-pointer"
+              onClick={hideLeftNavs}
+            />
+          )}
+
           {/* Left Navigation bar */}
-          <NavItems navs={navs} />
+          {leftNavs && <NavItems navs={navs} />}
         </div>
         <div className="sm_tab:w-[75%] w-[90%] m-auto sm_tab:m-0">
           {/* Form and Details */}
