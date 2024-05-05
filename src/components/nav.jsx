@@ -52,12 +52,12 @@ const nav = () => {
         <>
           {showNavs ? (
             <GoArrowLeft
-              className="pb-4 text-5xl font-bold"
+              className="pb-4 text-5xl font-bold cursor-pointer"
               onClick={showNavlinks}
             />
           ) : (
             <VscMenu
-              className="pb-4 text-5xl font-bold"
+              className="pb-4 text-5xl font-bold cursor-pointer"
               onClick={showNavlinks}
             />
           )}

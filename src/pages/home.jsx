@@ -11,10 +11,12 @@ import { TfiAngleRight } from "react-icons/tfi";
 import { useLocation } from "react-router-dom";
 
 // Left Side Navigation bar
-export const NavItems = ({navs, width=''}) => {
-  console.log(navs)
+export const NavItems = ({ navs, width = "" }) => {
   return (
-    <div className="w-[90%] h-[101%] pt-14 min-h-[100vh] bg-white border-r-2 border-gray-300" style={width.length ? {width:'100%'} : {}}>
+    <div
+      className="w-[90%] h-[101%] pt-14 min-h-[100vh] bg-white border-r-2 border-gray-300"
+      style={width.length ? { width: "100%" } : {}}
+    >
       <ul className="flex flex-col gap-6">
         {navs.map((item, idx) => (
           <div
@@ -36,18 +38,16 @@ export const NavItems = ({navs, width=''}) => {
   );
 };
 
-
 // Right Section
 const RightPart = () => {
   // To show Details can't be changed/
   const [warning, setWarning] = useState(false);
 
   const handleData = (props) => {
-    console.log(props);
     setWarning(props);
   };
   return (
-    <div className="pt-4 flex flex-col gap-5 phone:gap-3 h-full">
+    <div className="pt-8 flex flex-col gap-5 phone:gap-3 h-full">
       <h1 className=" text-[35px] whitespace-nowrap  phone:text-3xl font-bold">
         Update Bank Details
       </h1>
@@ -107,7 +107,7 @@ const home = () => {
           {/* Left Navigation bar */}
           <NavItems navs={navs} />
         </div>
-        <div className="sm_tab:w-[75%] w-[90%] m-auto">
+        <div className="sm_tab:w-[75%] w-[90%] m-auto sm_tab:m-0">
           {/* Form and Details */}
           <RightPart />
         </div>
